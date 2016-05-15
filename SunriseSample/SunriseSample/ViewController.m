@@ -10,6 +10,16 @@
 #import "EventCustomCell.h"
 #import "AlertToastView.h"
 
+
+const NSUInteger eventListViewControllerSectionCount                        = 1;
+const NSUInteger eventListViewControllerHeightForHeaderInSection            = 30;
+const NSUInteger eventListViewControllerheightForRowAtIndexPath             = 95;
+const NSUInteger eventListViewControllerheightForFooterInSection            = 45;
+const NSUInteger eventListViewControllerheightofToastView                   = 100;
+
+
+
+
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSString * selectedDate;
     NSMutableArray * arrEventsOfADate;
@@ -39,7 +49,6 @@
 
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -49,7 +58,7 @@
 #pragma mark - TableView DataSource and Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return eventListViewControllerSectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -57,15 +66,15 @@
     return arrEventsOfADate.count>0?arrEventsOfADate.count+1:2;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 95;
+    return eventListViewControllerheightForRowAtIndexPath;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 30;
+    return eventListViewControllerHeightForHeaderInSection;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 3) {
-        return 45;
+        return eventListViewControllerheightForFooterInSection;
     }
     return 0;
 }
@@ -73,7 +82,6 @@
 -(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    
     header.textLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     header.textLabel.textColor = [UIColor darkGrayColor];
 }
@@ -165,16 +173,17 @@
         
             [arrEventsOfADate removeObjectAtIndex:indexPath.row];
             
-      
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        
-        self.toastView =[[AlertToastView alloc]init];
-        self.toastView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100);
-        
-        [self.toastView showToastView:self.view viewColor:[UIColor redColor] message:@"Item deleted successfully"];
-        [self.eventsList addSubview:self.toastView];
+        if (arrEventsOfADate.count>0) {
+             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            self.toastView =[[AlertToastView alloc]init];
+            self.toastView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.frame), eventListViewControllerheightofToastView);
+            
+            [self.toastView showToastView:self.view viewColor:[UIColor redColor] message:@"Item deleted successfully"];
+            [self.eventsList addSubview:self.toastView];
 
+        }
+        [self.eventsList reloadData];
+       
     }
     else{
         [self insertRowWithIndexPath:indexPath];

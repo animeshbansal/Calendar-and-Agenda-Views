@@ -20,11 +20,11 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
+/*
+ // All values are hardCode contain cell designing
+ //
+ */
 
 -(void)setEventDetail:(NSDictionary*)dictEventDetail{
     eventTitle.text = @"Event Title";
@@ -51,5 +51,11 @@
     
     self.eventImage.image = [UIImage imageNamed:@"eventImage1.png"];
 
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
 }
 @end

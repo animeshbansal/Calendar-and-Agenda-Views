@@ -20,7 +20,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-W3-ePc" customClass="CalenderView">
                                 <rect key="frame" x="20" y="72" width="560" height="289"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="289" id="SM0-Hu-JrG"/>
                                 </constraints>

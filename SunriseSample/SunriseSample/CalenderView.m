@@ -91,29 +91,26 @@ const NSUInteger CalenderViewFontSize                        = 16.0;
  
  */
 -(void)designingOfCalender{
+    width = 29;
+    height = 26;
+    
     width = (self.frame.size.width-60)/7.0;
-    height = ((self.frame.size.height-72)/6.0)-CalenderViewNavigationYSpace-2;
     
     // Initialization code
-    fontOfCalender = [UIFont fontWithName:@"Arial" size:CalenderViewFontSize];
+    fontOfCalender = [UIFont fontWithName:@"Arial" size:15];
     self.backgroundColor = [UIColor whiteColor];
     
-    self.imgViewDateSelecter = [[UIImageView alloc] init];
+    self.imgViewDateSelecter = [[UIImageView alloc] initWithFrame:CGRectMake(14, 60, width, 24)];
     [self.imgViewDateSelecter setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CalRedTile" ofType:@"png"]]];
-    self.imgViewDateSelecter.frame = CGRectMake(0,
-                                                0,
-                                                width,
-                                                height-2);
     [self addSubview:self.imgViewDateSelecter];
     
-    self.month_YearButton = [[UIButton alloc] init];
+    self.month_YearButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(self.bounds), 25)];
     [self.month_YearButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.month_YearButton.titleLabel.font = fontOfCalender;
-    self.month_YearButton.frame = CGRectMake(CalenderViewNavigationButtonSize,
-                                             0,
-                                             self.frame.size.width-CalenderViewNavigationButtonSize*2,
-                                             CalenderViewNavigationButtonSize);
     [self addSubview:self.month_YearButton];
+    
+    self.imgViewDateSelecter.frame = CGRectMake(14, 60, width, height-2);
+    self.month_YearButton.frame = CGRectMake(40, 00,self.frame.size.width-80, 40);
     
     [self setCalenderParameter:0];
     [self showWeekDays];

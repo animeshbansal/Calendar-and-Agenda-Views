@@ -79,16 +79,16 @@
 		6287BE4B1CE78757005D1703 /* SunriseSample */ = {
 			isa = PBXGroup;
 			children = (
-				222FE8091CE9051C00E46AD7 /* AlertToastView.h */,
-				222FE80A1CE9051C00E46AD7 /* AlertToastView.m */,
-				6287BE691CE788D5005D1703 /* CalenderView.h */,
-				6287BE6A1CE788D5005D1703 /* CalenderView.m */,
 				6287BE4F1CE78758005D1703 /* AppDelegate.h */,
 				6287BE501CE78758005D1703 /* AppDelegate.m */,
 				6287BE521CE78758005D1703 /* ViewController.h */,
 				6287BE531CE78758005D1703 /* ViewController.m */,
+				6287BE691CE788D5005D1703 /* CalenderView.h */,
+				6287BE6A1CE788D5005D1703 /* CalenderView.m */,
 				62782BFA1CE8D80D00B6469B /* EventCustomCell.h */,
 				62782BFB1CE8D80D00B6469B /* EventCustomCell.m */,
+				222FE8091CE9051C00E46AD7 /* AlertToastView.h */,
+				222FE80A1CE9051C00E46AD7 /* AlertToastView.m */,
 				6287BE551CE78758005D1703 /* Main.storyboard */,
 				6287BE581CE78758005D1703 /* Assets.xcassets */,
 				6287BE5A1CE78758005D1703 /* LaunchScreen.storyboard */,
