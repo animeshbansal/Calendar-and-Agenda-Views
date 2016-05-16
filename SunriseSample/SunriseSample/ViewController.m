@@ -31,14 +31,16 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
 @end
 
 @implementation ViewController
+
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self screenDesigning];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+//Designing 
 -(void)screenDesigning{
-    
     viewCalender.delegate = self;
     viewCalender.fontOfCalender = [UIFont fontWithName:@"Arial" size:15];
     arrEventsOfADate = [[NSMutableArray alloc]initWithObjects:@"Hi am Bansal",@"this is animesh", nil];
@@ -46,12 +48,7 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
     [viewCalender setTodayDateToCalender];
 }
 
-#pragma mark :- CalenderViewDelegate
-- (void)calenderDateChanged:(NSDate *)calDate{
-    self.calenderSelectedDate =calDate;
-    [self.eventsList reloadData];
 
-}
 
 
 - (void)didReceiveMemoryWarning {
@@ -218,6 +215,13 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
     ;
     formatedDate = [NSString stringWithFormat:@"%@ , %@", week ,dateString ];
     return formatedDate;
+}
+
+#pragma mark :- CalenderViewDelegate
+- (void)calenderDateChanged:(NSDate *)calDate{
+    self.calenderSelectedDate =calDate;
+    [self.eventsList reloadData];
+    
 }
 
 @end
