@@ -21,12 +21,13 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>{
-    NSString * selectedDate;
     NSMutableArray * arrEventsOfADate;
-    
+    __weak IBOutlet CalenderView *viewCalender;
 }
 @property (weak, nonatomic) IBOutlet UITableView    *eventsList;
 @property (strong, nonatomic) IBOutlet AlertToastView *toastView;
+@property (strong, nonatomic) NSDate    *calenderSelectedDate;
+
 @end
 
 @implementation ViewController
@@ -38,15 +39,19 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
 
 -(void)screenDesigning{
     
-    viewCalender = [[CalenderView alloc] init];
-    viewCalender.backgroundColor = [UIColor whiteColor];
     viewCalender.delegate = self;
     viewCalender.fontOfCalender = [UIFont fontWithName:@"Arial" size:15];
     arrEventsOfADate = [[NSMutableArray alloc]initWithObjects:@"Hi am Bansal",@"this is animesh", nil];
-     [self.eventsList setEditing:YES animated:YES];
+    [self.eventsList setEditing:YES animated:YES];
+    [viewCalender setTodayDateToCalender];
 }
 
+#pragma mark :- CalenderViewDelegate
+- (void)calenderDateChanged:(NSDate *)calDate{
+    self.calenderSelectedDate =calDate;
+    [self.eventsList reloadData];
 
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +91,11 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
     header.textLabel.textColor = [UIColor darkGrayColor];
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"15 May 2016 - Sunday";
+    
+    
+    return [self dateFormater:self.calenderSelectedDate];
+    
+    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -195,5 +204,20 @@ const NSUInteger eventListViewControllerheightofToastView                   = 10
     
 }
 
+#pragma mark :- Action methods
+
+-(NSString*)dateFormater:(NSDate *)selectedDate
+{
+    NSString *formatedDate ;
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd MMM"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
+    [dateFormatter setDateFormat:@"EEEE"];
+    NSString *dateString = [format stringFromDate:selectedDate];
+    NSString *week = [dateFormatter stringFromDate:selectedDate];
+    ;
+    formatedDate = [NSString stringWithFormat:@"%@ , %@", week ,dateString ];
+    return formatedDate;
+}
 
 @end

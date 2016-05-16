@@ -46,7 +46,8 @@
 @property(nonatomic, strong)  UIButton*              month_YearButton;
 
 // delegate method
-@property(nonatomic, weak) id <CalenderViewDelegate> delegate;
+//@property(nonatomic, weak) id <CalenderViewDelegate> delegate;
+@property(nonatomic, assign) __unsafe_unretained id <CalenderViewDelegate>delegate;
 
 
 

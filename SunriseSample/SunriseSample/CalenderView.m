@@ -20,7 +20,6 @@ const NSUInteger CalenderViewFontSize                        = 16.0;
 
 
 
-
 @interface CalenderView ()
 {
     float width;
@@ -515,6 +514,7 @@ const NSUInteger CalenderViewFontSize                        = 16.0;
         [(id)[self delegate] calenderDateChanged:self.selectedDate];
     }
 }
+
 /*
  // previous month date
  */

@@ -109,10 +109,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JZG-oO-JEP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAr-fe-0OP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAr-fe-0OP">
+                            <connections>
+                                <segue destination="KDS-yW-b8G" kind="show" id="IoG-0w-Dgh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="eventsList" destination="kpb-gm-Daf" id="yB5-9d-8k2"/>
+                        <outlet property="viewCalender" destination="jP0-W3-ePc" id="YhJ-JB-lpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,21 +143,22 @@
             <point key="canvasLocation" x="245" y="322"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="OdS-LR-hG8">
+        <scene sceneID="ttn-SJ-0ep">
             <objects>
-                <viewController id="Cje-kj-qOB" sceneMemberID="viewController">
+                <viewController id="KDS-yW-b8G" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="22s-3U-rab"/>
-                        <viewControllerLayoutGuide type="bottom" id="mta-5s-Ooz"/>
+                        <viewControllerLayoutGuide type="top" id="873-RT-4Wj"/>
+                        <viewControllerLayoutGuide type="bottom" id="CwE-c2-zGY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hB9-3q-K5w">
+                    <view key="view" contentMode="scaleToFill" id="v3P-kt-EdA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2W-VM-qUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bz7-fI-dYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1743" y="322"/>
         </scene>
     </scenes>
 </document>

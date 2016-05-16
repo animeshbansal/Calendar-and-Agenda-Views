@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CalenderView.h"
 @interface ViewController : UIViewController <CalenderViewDelegate>
-{
-    CalenderView *viewCalender;
-    
-}
+
 @end
 
